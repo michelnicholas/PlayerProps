@@ -1,8 +1,6 @@
-module.exports = {
-  darkMode: "class",
-  content: ["./src/views/**/*.ejs", "./src/public/**/*.js"],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
+export const darkMode = "class";
+export const content = ["./src/views/**/*.ejs", "./src/public/**/*.js"];
+export const theme = {
+  extend: {},
 };
+export const plugins = [];
