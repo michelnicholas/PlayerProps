@@ -4,7 +4,6 @@ import { config } from "dotenv";
 import path from "path";
 import { fileURLToPath } from "url";
 import playerRoutes from "./routes/playerRoutes.js";
-import { getAllPlayers } from "./controllers/playerController.js";
 
 config();
 
@@ -21,8 +20,27 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/players", playerRoutes);
 
+const articles = [
+  {
+    title: "LeBron James: The King of the Court",
+    content:
+      "LeBron James continues to dominate the NBA with his incredible performances...",
+  },
+  {
+    title: "Stephen Curry: The Three-Point Maestro",
+    content:
+      "Stephen Curry has revolutionized the game with his exceptional three-point shooting...",
+  },
+  {
+    title: "Kevin Durant: The Scoring Machine",
+    content:
+      "Kevin Durant's scoring ability makes him one of the most unstoppable players in the league...",
+  },
+  // Add more articles as needed
+];
+
 app.get("/", (req, res) => {
-  res.render("index");
+  res.render("index", { players: [], articles });
 });
 
 app.listen(PORT, () => {

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -25,13 +25,17 @@
       <img
         src="/images/example.jpg"
         alt="Example Image"
-        class="max-w-2xl h-80 mx-auto shadow-lg border border-gray-200 rounded-lg p-6"
+        class="max-w-2xl h-80 mx-auto shadow-lg rounded-lg p-2"
       />
 
-      <form action="/players/search" method="get" class="max-w-md mx-auto">
+      <form
+        action="/players/search"
+        method="get"
+        class="max-w-md mx-auto mt-3 inline-block py-2 px-4 rounded"
+      >
         <label
           for="default-search"
-          class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
+          class="max-w-md mx-auto font-medium text-gray-900 sr-only dark:text-white"
           >Search</label
         >
         <div class="relative">
@@ -55,18 +59,34 @@
           />
           <button
             type="submit"
-            class="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            class="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
           >
             Search
           </button>
         </div>
       </form>
-
-      <a
-        href="/players"
-        class="mt-3 inline-block bg-blue-500 dark:bg-blue-700 text-white py-2 px-4 rounded"
-        >View Players</a
-      >
     </div>
+
+    <section class="mt-10">
+      <h2 class="text-2xl font-bold text-gray-800 dark:text-gray-200 mb-5">
+        Spotlight
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <% articles.forEach(article => { %>
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
+          <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">
+            <%= article.title %>
+          </h3>
+          <p class="text-gray-700 dark:text-gray-300"><%= article.content %></p>
+        </div>
+        <% }) %>
+      </div>
+    </section>
+
+    <a
+      href="/players"
+      class="mt-5 inline-block bg-blue-500 dark:bg-blue-700 text-white py-2 px-4 rounded"
+      >View Players</a
+    >
   </body>
 </html>
