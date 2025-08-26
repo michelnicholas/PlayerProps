@@ -6,6 +6,7 @@ import { fileURLToPath } from "url";
 import playerRoutes from "./routes/playerRoutes.js";
 
 config();
+config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -18,7 +19,10 @@ app.set("views", path.join(__dirname, "views"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
+import nflPlayerRoutes from "./routes/nflPlayerRoutes.js";
+
 app.use("/players", playerRoutes);
+app.use("/nflplayers", nflPlayerRoutes);
 
 const articles = [
   {
