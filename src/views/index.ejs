@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NBA Player Props</title>
+    <title>Player Props</title>
     <link rel="stylesheet" href="/css/styles.css" />
     <script>
       function toggleDarkMode() {
@@ -20,7 +20,7 @@
         Toggle Dark Mode
       </button>
       <h1 class="text-3xl font-bold text-gray-800 dark:text-gray-200">
-        NBA Player Props
+        Player Props
       </h1>
       <img
         src="/images/example.jpg"
@@ -69,7 +69,7 @@
 
     <section class="mt-10">
       <h2 class="text-2xl font-bold text-gray-800 dark:text-gray-200 mb-5">
-        Spotlight
+        NBA Players
       </h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <% articles.forEach(article => { %>
@@ -86,7 +86,33 @@
     <a
       href="/players"
       class="mt-5 inline-block bg-blue-500 dark:bg-blue-700 text-white py-2 px-4 rounded"
-      >View Players</a
+      >View NBA Players</a
+    >
+
+    <section class="mt-10">
+      <h2 class="text-2xl font-bold text-gray-800 dark:text-gray-200 mb-5">
+        NFL Players
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <% const nflPlayers = [ { name: 'Patrick Mahomes', position: 'QB', team:
+        'Chiefs' }, { name: 'Derrick Henry', position: 'RB', team: 'Titans' }, {
+        name: 'Davante Adams', position: 'WR', team: 'Raiders' } ]; %> <%
+        nflPlayers.forEach(player => { %>
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
+          <h3 class="text-xl font-bold text-green-900 dark:text-green-100">
+            <%= player.name %>
+          </h3>
+          <p class="text-gray-700 dark:text-gray-300">
+            Position: <%= player.position %> | Team: <%= player.team %>
+          </p>
+        </div>
+        <% }) %>
+      </div>
+    </section>
+    <a
+      href="/nflplayers"
+      class="mt-5 inline-block bg-green-500 dark:bg-green-700 text-white py-2 px-4 rounded"
+      >View NFL Players</a
     >
   </body>
 </html>
